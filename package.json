@@ -1,0 +1,32 @@
+{
+  "name": "dbms-talk-handson",
+  "version": "1.0.0",
+  "description": "A follow up hands-on session for the the node.js talk.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.js -e js,hbs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SathvikKS/DBMS-Talk-HandsOn.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/SathvikKS/DBMS-Talk-HandsOn/issues"
+  },
+  "homepage": "https://github.com/SathvikKS/DBMS-Talk-HandsOn#readme",
+  "devDependencies": {}
+}

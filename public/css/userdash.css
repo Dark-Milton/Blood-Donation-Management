@@ -1,0 +1,66 @@
+main {
+    margin-top: 6rem;
+}
+h1 {
+    font-size: 36px;
+}
+.primary-nav-items {
+    gap: 1rem
+}
+
+.list {
+    width: 100%;
+    background-color: yellow;
+}
+.content {
+    display: flex;
+    /* justify-content: space-between; */
+}
+.content div {
+    display: block;
+    /* margin-inline: auto; */
+    width: 25%;
+    text-align: center;
+} 
+.details {
+    width: 100%;
+    margin-top: 8rem;
+}
+.card {
+    width: 100%;
+    padding: 5rem;
+    background-color: red;
+    border-radius: 15px;
+}
+.card .info{
+    width: 100%;
+    margin-block: 0.5rem;
+}
+.info label {
+    font-size: 30px;
+}
+.info input {
+    cursor: none;
+    text-align: center;
+    padding-inline: 1rem;
+    font-size: 24px;
+    border-radius: 10px;
+}
+.card a{
+    margin-top: 2rem;
+    font-size: 20px;
+    color: aliceblue;
+}
+.card .unregister {
+    display: block;
+    margin-left: auto;
+}
+.confirmation {
+    display: none;
+}
+.confirmation span{
+    font-size: 20px;
+}
+.confirmation button {
+    font-size: 16px;
+}

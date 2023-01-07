@@ -1,0 +1,79 @@
+body {
+    height: 100%;
+}
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 24px;
+}
+.thanksnote {
+    color: yellow;
+    background-color: var(--clr-accent-600);
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+.hero-img-container {
+    display: grid;
+    place-items: center;
+}
+.hero-img-container img{
+    width: 60ch;
+}
+
+.card-container {
+    display: grid;
+    place-items: center;
+}
+.card {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    width: min(100%, 60ch);
+    padding: 4rem 4rem;
+    background-color: var(--clr-accent-400);
+    border: 2px solid var(--clr-accent-800);
+    border-radius: 15px;
+}
+@media (max-width: 50em) {
+    .card {
+        padding: 4rem min(7%, 4rem);
+    }
+}
+.card *:not(button){
+    width: 100%;
+}
+.card >*:first-child {
+    margin-bottom: 1.5rem;
+}
+.card >*:last-child {
+    margin-top: 1.5rem;
+}
+.done {
+    display: none;
+    font-size:20px;
+}
+form {
+    display: grid;
+    gap: 1rem;
+}
+form > * {
+    display: grid;
+    place-items: center;
+    /* gap: 0.25rem; */
+}
+form input {
+    border: 1px solid var(--clr-accent-800);
+    border-radius: 10px;
+    padding: 5px 0;
+}
+form button {
+    width: 20ch;
+    margin-inline: auto;
+}

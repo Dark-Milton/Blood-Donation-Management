@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/prerequisite.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/userlogin.css">
+    <script src="js/usersignup.js" defer></script>
+    <title>Login</title>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+      </div>
+    </nav>
+    <main class="container">
+    <div class="even-columns">
+        <div class="hero-img-container">
+            <img class="hero-img" src="images/profileimg.png" alt="">
+        <h2 class="thanksnote">Thank You for supporting Humanity</h2>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div>
+                    <h1>SignUp As a Donor</h1>
+                </div>
+                <h4 class="done">Successfully regsitered. Please Login. Redirecting...</h4>
+                <div class="form">
+                    <form action="/api/userSignup" method="post">
+                        <div class="name-section">
+                            <div>
+                                <label for="name">Name</label>
+                            </div>
+                            <div>
+                                <input type="text" name="name" required>
+                            </div>
+                        </div>
+                        <div class="email-section">
+                            <div>
+                                <label for="email">Email</label>
+                            </div>
+                            <div>
+                                <input type="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="group-section">
+                            <div>
+                                <label for="group">Blood Group</label>
+                            </div>
+                            <div>
+                                <input type="group" name="group" required>
+                            </div>
+                        </div>
+                        <div class="PhNo-section">
+                            <div>
+                                <label for="PhNo">Mobile Number</label>
+                            </div>
+                            <div>
+                                <input type="PhNo" name="PhNo" required>
+                            </div>
+                        </div>
+                        <div class="passwd-section">
+                            <div>
+                                <label for="password">Password</label>
+                            </div>
+                            <div>
+                                <input type="password" name="password" required>
+                            </div>
+                        </div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

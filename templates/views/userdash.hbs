@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/userdash.css">
+    <title>Login</title>
+    <script src="/js/userdash.js" defer></script>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <h1>Welcome {{user.Name}}</h1> 
+        {{result}}
+        <div class="details">
+          <form action="/api/unregister" method="post" class="card">
+            <div class="info even-columns">
+              <label for="name">Name : </label>
+              <input name="name" value="{{user.Name}}" readonly="readonly"></input>
+            </div>
+            <div class="info even-columns">
+              <label for="email">Email : </label>
+              <input name="email" value={{user.Email}} readonly="readonly"></input>
+            </div>
+            <div class="info even-columns">
+              <label for="group">Blood Group : </label>
+              <input name="group" value={{user.Bgroup}} readonly="readonly"></input>
+            </div>
+            <div class="info even-columns">
+              <label for="PhNo">Mobile Number : </label>
+              <input name="PhNo" value={{user.PhNo}} readonly="readonly"></input>
+            </div>
+            <a href="/changePasswd/{{user.Email}}">Change Password?</a>
+            <button type="button" class="unregister">Unregister</button>
+            <div class="confirmation">
+              <span>Are you Sure?</span>
+              <button type="submit">OK</button>
+              <button type="button" class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+</body>
+</html>
