@@ -23,7 +23,7 @@ exports.userLogin =  (req, res) => {
             }
             // const match = await bcrypt.compare(userPassword, results[0].password)
             console.log(results)
-            match = (userPassword == results[0].Password) &&(userName == results[0].Name) && (userEmail == results[0].Email) 
+            match = (userPassword == results[0].Password) && (userName == results[0].Name) && (userEmail == results[0].Email) 
             if (match) {
                 // req.session.userName = results[0].Name
                 // res.status(200).send()
@@ -38,7 +38,7 @@ exports.userLogin =  (req, res) => {
         }
     })    
 };
-exports.userSignup =  async (req, res) => {
+exports.userSignUp =  async (req, res) => {
     const userName = req.body.name
     const userEmail = req.body.email
     const userPassword = req.body.password

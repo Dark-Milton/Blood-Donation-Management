@@ -23,8 +23,9 @@
     <main class="container">
     <div class="even-columns">
         <div class="hero-img-container">
-            <img class="hero-img" src="images/profileimg.png" alt="">
-        <h2 class="thanksnote">Thank You for supporting Humanity</h2>
+            <div class="img-container">
+            {{!-- <h2 class="thanksnote">Thank You for supporting Humanity</h2> --}}
+            </div>
         </div>
         <div class="card-container">
             <div class="card">
@@ -33,7 +34,7 @@
                 </div>
                 <h4 class="done">Successfully regsitered. Please Login. Redirecting...</h4>
                 <div class="form">
-                    <form action="/api/userSignup" method="post">
+                    <form action="/api/userSignUp" method="post">
                         <div class="name-section">
                             <div>
                                 <label for="name">Name</label>
@@ -74,7 +75,10 @@
                                 <input type="password" name="password" required>
                             </div>
                         </div>
+                        <div>
                         <button type="submit">Submit</button>
+                        <a class="red-login" href="/userlogin">Already a User? Log in</a>
+                        </div>
                     </form>
                 </div>
             </div>

@@ -7,6 +7,15 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+body{
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 70% 94%;
+    background-position: 0 100%;
+
+    background-color: #2596be;
+    /* background-color: #5fafd4; */
+}
 h1 {
     font-size: 32px;
 }
@@ -14,14 +23,18 @@ h2 {
     font-size: 24px;
 }
 .thanksnote {
-    color: yellow;
-    background-color: var(--clr-accent-600);
+    color: var(--clr-accent-500);
+    /* background-color: var(--clr-accent-600); */
     padding: 3px 8px;
     border-radius: 10px;
+    text-align: center;
 }
 .hero-img-container {
     display: grid;
     place-items: center;
+}
+.img-container {
+    height: max-content;
 }
 .hero-img-container img{
     width: 60ch;
@@ -35,8 +48,8 @@ h2 {
     display: grid;
     place-items: center;
     gap: 2rem;
-    width: min(100%, 60ch);
-    padding: 4rem 4rem;
+    width: min(100%, 50ch);
+    padding: 3rem 3rem;
     background-color: var(--clr-accent-400);
     border: 2px solid var(--clr-accent-800);
     border-radius: 15px;
@@ -45,6 +58,9 @@ h2 {
     .card {
         padding: 4rem min(7%, 4rem);
     }
+}
+.card {
+    position: relative;
 }
 .card *:not(button){
     width: 100%;
@@ -56,12 +72,16 @@ h2 {
     margin-top: 1.5rem;
 }
 .done {
+    position: absolute;
     display: none;
-    font-size:20px;
+    font-size:16px;
+    top: 7.5rem;
+    width: 100%;
+    padding-inline: 3rem;
 }
 form {
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 form > * {
     display: grid;
@@ -74,6 +94,9 @@ form input {
     padding: 5px 0;
 }
 form button {
-    width: 20ch;
-    margin-inline: auto;
+    width: max-content;
+}
+form .red-login {
+    color: #b3e5fc;
+    text-align: center;
 }

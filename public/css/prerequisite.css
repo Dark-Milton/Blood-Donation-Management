@@ -52,6 +52,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: sans-serif !important;
 }
 
 /* Remove default margin */
@@ -99,6 +100,9 @@ svg {
 a {
   text-decoration: none;
 }
+dl, ol, ul {
+  margin: 0;
+}
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
@@ -144,7 +148,7 @@ button {
   margin-block: 1rem;
   line-height: 1;
   font-weight: 900;
-  font-size: 1.24rem;
+  font-size: 1.15rem;
   background-color: var(--clr-neutral-100);
   color: var(--clr-neutral-700);
 }

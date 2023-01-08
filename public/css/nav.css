@@ -9,7 +9,7 @@ nav {
     background-color: var(--clr-accent-700);
     z-index: 999;
   }
-  .nav-container {
+.nav-container {
     position: relative;
     display: flex;
     justify-content: space-between;
