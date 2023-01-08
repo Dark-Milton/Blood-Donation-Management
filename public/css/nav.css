@@ -6,7 +6,7 @@ nav {
     right: 0;
     top: 0;
     margin-inline: auto;
-    background-color: var(--clr-accent-700);
+    background-color: var(--clr-accent-500);
     z-index: 999;
   }
 .nav-container {
@@ -17,7 +17,7 @@ nav {
     max-width: 80%;
     margin-inline: auto;
     font-size: 1.1rem;
-    background-color: var(--clr-accent-700);
+    background-color: var(--clr-accent-500);
   }
   .logo-container {
     display: flex;

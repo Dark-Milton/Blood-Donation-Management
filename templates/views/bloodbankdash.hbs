@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/prerequisite.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/userdash.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
     <title>Login</title>
     <script src="../js/bloodbankdash.js" defer></script>
 </head>
@@ -26,17 +27,19 @@
     <main>
       <div class="container">
         <h1>Welcome {{ user }}</h1>
-        <div id="list" class="list">
-          {{#each result}}
-          <div class="content">
-            <div class="name">{{this.Name}}</div>
-            <div class="email">{{this.Email}}</div>
-            <div class="grp">{{this.Bgroup}}</div>
-            <div class="no">{{this.PhNo}}</div>
-          </div>
-          {{/each}}
-        </div>
       </div>
+       <div class="user-container" section id="vol-sect">
+        <ul class="volunt container">
+            {{#each result}}
+            <li class="vol">
+                <span class=" vol-i number">{{this.Name}}</span>
+                <span class=" vol-i name">{{this.Email}}</span>
+                <span class=" vol-i location">{{this.Bgroup}}<i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span class=" vol-i blood group">{{this.PhNo}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
     </main>
 </body>
 </html>

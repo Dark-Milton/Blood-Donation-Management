@@ -30,7 +30,8 @@
   --clr-accent-200: #fec1c2;
   --clr-accent-300: #ff9092;
   --clr-accent-400: #ff5f61;
-  --clr-accent-500: #ff2e31;
+  /* --clr-accent-500: #ff2e31; */
+  --clr-accent-500: hsl(0, 71%, 51%);
   --clr-accent-600: #fc0003;
   --clr-accent-700: #cc0002;
   --clr-accent-800: #9b0002;
@@ -76,7 +77,7 @@ html:focus-within {
 /* Set core body defaults */
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   /* font-family: 'sans-serif'; */
   font-weight: 600;
 }

@@ -1,0 +1,101 @@
+body {
+    height: 100%;
+}
+main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* body{
+    background-image: url('../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 70% 94%;
+    background-position: 0 100%;
+
+    background-color: #2596be;
+} */
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 24px;
+}
+.thanksnote {
+    color: var(--clr-accent-500);
+    /* background-color: var(--clr-accent-600); */
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+.hero-img-container {
+    display: grid;
+    place-items: center;
+}
+.img-container {
+    height: max-content;
+}
+.hero-img-container img{
+    width: 60ch;
+}
+
+.card-container {
+    display: grid;
+    place-items: center;
+}
+.card {
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    width: min(100%, 50ch);
+    padding: 3rem 3rem;
+    background-color: var(--clr-accent-400);
+    border: 2px solid var(--clr-accent-800);
+    border-radius: 15px;
+}
+@media (max-width: 50em) {
+    .card {
+        padding: 4rem min(7%, 4rem);
+    }
+}
+.card {
+    position: relative;
+}
+.card *:not(button){
+    width: 100%;
+}
+.card >*:first-child {
+    margin-bottom: 1.5rem;
+}
+.card >*:last-child {
+    margin-top: 1.5rem;
+}
+.done {
+    position: absolute;
+    display: none;
+    font-size:16px;
+    top: 7.5rem;
+    width: 100%;
+    padding-inline: 3rem;
+}
+form {
+    display: grid;
+    gap: 0.5rem;
+}
+form > * {
+    display: grid;
+    place-items: center;
+    /* gap: 0.25rem; */
+}
+form input {
+    border: 1px solid var(--clr-accent-800);
+    border-radius: 10px;
+    padding: 5px 0;
+}
+form button {
+    width: max-content;
+}
+form .red-login {
+    color: #b3e5fc;
+    text-align: center;
+}
