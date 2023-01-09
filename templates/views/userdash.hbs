@@ -26,7 +26,7 @@
       </div>
     </nav>
     <main>
-      <div class="container">
+      <div class="user-container">
         <h1>Welcome {{user.Name}}</h1> 
           <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
@@ -39,6 +39,10 @@
           </div>
         </div>
         <div class="details">
+          <div class="card-header">
+            <h4 class="data-header">Your Data:-</h4>
+            <a href="/editInfo/{{user.Email}}">Edit information ?</a>
+          </div>
           <form action="/api/unregister" method="post" class="card">
             <div class="info even-columns">
               <label for="name">Name : </label>

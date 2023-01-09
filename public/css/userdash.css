@@ -1,34 +1,53 @@
+body {
+    background-image: url('../images/donate-blood-and-save-life.jpg');
+    background-repeat: no-repeat;
+    background-position: 100% 60%;
+    /* background-size: 20%; */
+}    
 main {
     margin-top: 6rem;
 }
+.user-container {
+    --max-width: 1600px;
+    --container-padding: 1rem;
+    
+    width: min(var(--max-width), 100% - (var(--container-padding)*2));
+    margin-inline: auto;
+}
 h1 {
     font-size: 36px;
+    font-weight: 600;
 }
 .primary-nav-items {
     gap: 1rem
 }
 
-.list {
-    width: 100%;
-    background-color: yellow;
-}
-.content {
-    display: flex;
-    /* justify-content: space-between; */
-}
-.content div {
-    display: block;
-    width: 25%;
-    text-align: center;
-} 
 .details {
-    width: 100%;
-    margin-top: 8rem;
+    width: 768px;
+    margin-top: 3rem;
+}
+
+.details .card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.details h4 {
+    font-size: 28px;
+    font-weight: 600;
+}
+.details a {
+    font-size: 19px;
+    font-weight: 400;
+    color: blue;
 }
 .card {
     width: 100%;
-    padding: 5rem;
-    background-color: red;
+    padding: 5rem 10rem 5rem 4rem;
+    background-image: linear-gradient(to bottom right, var(--clr-accent-400), pink);
+    box-shadow: 0 0 40px var(--clr-accent-400);
+    border: 1px var(--clr-accent-600);
     border-radius: 15px;
 }
 .card .info{
@@ -36,13 +55,13 @@ h1 {
     margin-block: 0.5rem;
 }
 .info label {
-    font-size: 30px;
+    font-size: 24px;
 }
 .info input {
-    cursor: none;
+    /* cursor: none; */
     text-align: center;
     padding-inline: 1rem;
-    font-size: 24px;
+    font-size: 20px;
     border-radius: 10px;
 }
 .card a{

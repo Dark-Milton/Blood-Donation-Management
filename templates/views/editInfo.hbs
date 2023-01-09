@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change Passwword</title>
+    <title>Edit Information</title>
     <link rel="stylesheet" href="/css/prerequisite.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/userdash.css">
     <link rel="stylesheet" href="/css/changePasswd.css">
+    <link rel="stylesheet" href="/css/editInfo.css">
 </head>
 <body>
     <nav>
@@ -22,23 +23,27 @@
     </nav>
     <main class="container">
         <div class="crumbs">
-            <a href="/dashboard/{{email}}">Dashboard</a><span>/Change Password</span>
+            <a href="/dashboard">Dashboard</a><span>/Edit Password</span>
         </div>
         <div class="card-container">
             <div></div>
             <div class="details">
-        <form class="form-container card" action="/changePasswd" method="post">
+        <form class="form-container card" action="/editInfo" method="post">
             <div class="info even-columns">
-                <label for="email">Email</label>
+                <label for="email">Email*</label>
                 <input name="email" value="{{email}}" readonly="read-only"></input>
             </div>
             <div class="info even-columns">
-                <label for="oldPasswd">Current Password</label>
-                <input name="oldPasswd"></input>
+                <label for="age">Age</label>
+                <input name="age"></input>
             </div>
             <div class="info even-columns">
-                <label for="newPasswd">New Password</label>
-                <input name="newPasswd" required></input>
+                <label for="gender">Gender</label>
+                <input name="gender" ></input>
+            </div>
+            <div class="info even-columns">
+                <label for="location">Location</label>
+                <input name="location"></input>
             </div>
             <button type="submit">Change</button>
         </form>

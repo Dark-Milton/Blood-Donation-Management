@@ -151,7 +151,7 @@ exports.view = (req, res) => {
     res.render('changePasswd',
      {email: req.params.email})
 };
-exports.edit = (req, res) => {
+exports.changePasswd = (req, res) => {
     const oldPasswd = req.body.oldPasswd
     const newPasswd = req.body.newPasswd
     const email = req.body.email

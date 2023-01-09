@@ -161,7 +161,7 @@
 }
 
 #blood-banks {
-  background-color: var(--clr-accent-300);
+  background-color: var(--clr-accent-200);
 }
 .blood-banks {
   --max-width: 1600px;
@@ -173,8 +173,9 @@
 }
 .blood-banks h2{
   display: inline;
-  color: var(--clr-accent-100);
-  background-color: var(--clr-accent-500);
+  color: #fff;
+  font-weight: 600;
+  background-color: var(--clr-accent-400);
   text-align: center;
   font-size: 32px;
   padding: 0.5rem 1rem;
@@ -200,7 +201,7 @@
   padding-block: 6%;
   width: 24rem; 
   padding-inline: 3rem;
-  box-shadow: 0 0 25px var(--clr-accent-800);
+  box-shadow: 0 0 45px var(--clr-accent-800);
 }
 .blood-banks .card-title {
   color: var(--clr-accent-900);

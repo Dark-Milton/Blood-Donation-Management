@@ -1,0 +1,41 @@
+body {
+    background-image: url('../images/give_blood.png');
+    background-position: 25% 70%;
+    background-size: auto 75%;
+    background-repeat: no-repeat;
+}
+main {
+    margin-top: 6rem;
+}
+.container {
+    --max-width: 1700px;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+.primary-nav-items {
+    gap: 1rem
+}
+.form-container {
+    --max-width: 1110px;
+    --container-padding: 1rem;
+    
+    width: min(var(--max-width), 100% - (var(--container-padding)*2));
+    margin-inline: auto;
+}
+.card-container {
+    margin-top: 10rem;
+}
+.details {
+    margin-left: auto;
+    margin-right: 10rem;
+}
+.crumbs a,
+.crumbs span {
+    font-size: 28px;
+    font-weight: 500;
+}
+.card {
+    padding: 5rem 6rem 5rem 3rem;
+}
