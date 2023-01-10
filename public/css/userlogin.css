@@ -99,6 +99,7 @@ form input {
 form button {
     width: max-content;
 }
+form .red-signup,
 form .red-login {
     color: #b3e5fc;
     text-align: center;

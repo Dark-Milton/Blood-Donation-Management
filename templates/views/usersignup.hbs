@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/prerequisite.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/userlogin.css">
+    <link rel="stylesheet" href="css/usersignup.css">
     <script src="js/usersignup.js" defer></script>
     <title>Login</title>
 </head>
@@ -34,7 +35,9 @@
                 </div>
                 <h4 class="done">Successfully regsitered. Please Login. Redirecting...</h4>
                 <div class="form">
-                    <form action="/api/userSignUp" method="post">
+                    <form action="/api/userSignUp" method="post" class="form">
+                    <div class="even-columns section-container">
+                    <div>
                         <div class="name-section">
                             <div>
                                 <label for="name">Name</label>
@@ -67,6 +70,32 @@
                                 <input type="PhNo" name="PhNo" required>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <div class="Age-section">
+                            <div>
+                                <label for="age">Age</label>
+                            </div>
+                            <div>
+                                <input type="number" name="age" required>
+                            </div>
+                        </div>
+                        <div class="Gender-section">
+                            <div>
+                                <label for="gender">Gender</label>
+                            </div>
+                            <div>
+                                <input name="gender" required>
+                            </div>
+                        </div>
+                        <div class="Location-section">
+                            <div>
+                                <label for="location">Location</label>
+                            </div>
+                            <div>
+                                <input name="location" required>
+                            </div>
+                        </div>
                         <div class="passwd-section">
                             <div>
                                 <label for="password">Password</label>
@@ -75,6 +104,8 @@
                                 <input type="password" name="password" required>
                             </div>
                         </div>
+                    </div>
+                    </div>
                         <div>
                         <button type="submit">Submit</button>
                         <a class="red-login" href="/userlogin">Already a User? Log in</a>

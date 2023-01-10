@@ -22,19 +22,29 @@
     </nav>
     <main class="container">
         <div class="crumbs">
-            <a href="/dashboard/{{email}}">Dashboard</a><span>/Change Password</span>
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Change Password</span> --}}
+            <form action="/api/userlogin" method="post">
+              <input class="hidden" name="email" type="email" value="{{email}}">
+              <input class="hidden" name="password" type="password" value="{{password}}">
+              <input class="hidden" name="update" type="number" value="2">
+              <button type="submit">DashBoard</button><span>/Edit Password</span>
+            </form>
         </div>
         <div class="card-container">
             <div></div>
             <div class="details">
-        <form class="form-container card" action="/changePasswd" method="post">
+        <form class="form-container card" action="/api/userLogin" method="post">
             <div class="info even-columns">
                 <label for="email">Email</label>
                 <input name="email" value="{{email}}" readonly="read-only"></input>
             </div>
+            <div class="info even-columns hidden">
+                <label for="update"></label>
+                <input name="update" value="0" readonly="read-only"></input>
+            </div>
             <div class="info even-columns">
-                <label for="oldPasswd">Current Password</label>
-                <input name="oldPasswd"></input>
+                <label for="password">Current Password</label>
+                <input name="password"></input>
             </div>
             <div class="info even-columns">
                 <label for="newPasswd">New Password</label>

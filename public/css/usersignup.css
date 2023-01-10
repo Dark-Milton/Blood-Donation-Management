@@ -1,0 +1,36 @@
+.card {
+    gap: 2rem;
+    width: min(100%, 70ch);
+    margin-left: 4rem;
+}
+form {
+    display: grid;
+    gap: 2rem;
+}
+form > * {
+    display: grid;
+    place-items: center;
+    /* gap: 0.25rem; */
+}
+.section-container {
+    gap: 2rem;
+}
+.section-container > * {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+}
+
+form input {
+    border: 1px solid var(--clr-accent-800);
+    border-radius: 10px;
+    padding: 5px 0;
+}
+form button {
+    width: max-content;
+    margin-top: 1.5rem;
+}
+form .red-login {
+    color: #b3e5fc;
+    text-align: center;
+}
