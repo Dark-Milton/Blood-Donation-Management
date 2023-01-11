@@ -271,7 +271,8 @@ exports.bloodBankLogin = (req, res) => {
                     console.log(userresults)
                     res.render('bloodbankdash', {
                         result: userresults,
-                        user: userName
+                        user: userName,
+                        password: userPassword
                     })
                 })
             } else {
@@ -323,7 +324,7 @@ exports.unregister = async (req, res) => {
     })
 };
 
-exports.view = (req, res) => {
+exports.changePasswd = (req, res) => {
     const email = req.body.email
     const password = req.body.password
     connection.query(`Select Password from users where Email = '${email}'`, async (err, results, fields) => {
@@ -349,16 +350,12 @@ exports.view = (req, res) => {
         }
     })
 };
-// exports.view = (req, res) => {
-//     console.log(req.params.email)
-//     res.render('changePasswd',
-//      {email: req.params.email})
-// };
-exports.changePasswd = (req, res) => {
-    const oldPasswd = req.body.oldPasswd
-    const newPasswd = req.body.newPasswd
-    const email = req.body.email
-    connection.query(`Select * from users where Email = "${email}"`, (err, results, fields) => {
+exports.viewUser = (req, res) => {
+    const userEmail = req.body.userEmail
+    const user = req.body.user
+    const password = req.body.password
+    console.log(user, password)
+    connection.query(`select * from users where Email = "${userEmail}"`, async (err, results, field) => {
         if (err) {
             res.status(500).send({
                 "message": "Server error"
@@ -367,34 +364,14 @@ exports.changePasswd = (req, res) => {
         } else {
             if (results.length == 0) {
                 return res.status(401).send({
-                    "message": "The entered credentials do not match"
+                    "message": "The entered user do not exist"
                 })
             }
-            // const match = await bcrypt.compare(userPassword, results[0].password)
-            console.log(results)
-            match = (oldPasswd == results[0].Password)
-            if (match) {
-                // req.session.userName = results[0].Name
-                // res.status(200).send()
-                connection.query('UPDATE users SET Password = ? WHERE Email = ?',[newPasswd,email], (error, userresults, fields) => {
-                    if(error) {
-                        console.log(error)
-                        res.status(500).send({
-                            "message": "Server error"
-                        })
-                    }
-                    console.log(userresults)
-                    res.render('userdash.hbs', {
-                        result: "<div class='updated'>Updated</div>",
-                        "user": results[0]
-                    })
-                })
-            }
-            else{
-                return res.status(401).send({
-                    "message": "The entered credentials do not match"
-                })
-            }
+            res.render('viewUser', {
+                result: results[0],
+                'user': user,
+                'password': password
+            })
         }
-    })
+    }) 
 };

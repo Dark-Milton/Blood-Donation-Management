@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User</title>
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/viewUser.css">
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+        <main class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/api/bloodBankLogin" method="post">
+              <input class="hidden" name="name" type="text" value="{{user}}">
+              <input class="hidden" name="password" type="password" value="{{password}}">
+              <input class="hidden" name="update" type="number" value="2">
+              <button type="submit">DashBoard</button><span>/{{result.Name}}</span>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

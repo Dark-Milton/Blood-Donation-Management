@@ -1,0 +1,9 @@
+.crumbs button {
+    color: blue;
+}
+.crumbs button,
+.crumbs span {
+    padding: 0;
+    font-size: 28px;
+    font-weight: 500;
+}
