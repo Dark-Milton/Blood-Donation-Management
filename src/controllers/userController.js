@@ -355,7 +355,7 @@ exports.viewUser = (req, res) => {
     const user = req.body.user
     const password = req.body.password
     console.log(user, password)
-    connection.query(`select * from users where Email = "${userEmail}"`, async (err, results, field) => {
+    connection.query(`select Name, Email, Bgroup, PhNo, Age, Gender, Location from users where Email = "${userEmail}"`, async (err, results, field) => {
         if (err) {
             res.status(500).send({
                 "message": "Server error"
@@ -375,3 +375,29 @@ exports.viewUser = (req, res) => {
         }
     }) 
 };
+exports.editInfo = async (req, res) => {
+    const email = req.body.email
+    const password = req.body.password
+    connection.query(`Select Password from users where Email = '${email}'`, async (err, results, fields) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            console.log(results)
+            if (results.length == 0) {
+                res.redirect('/')
+            }
+            if(password == results[0].Password) {
+                res.render('editInfo.hbs', {
+                    'email': email,
+                    'password': password
+                })
+            }
+            else {
+                res.redirect('/')
+            }
+        }
+    })
+}

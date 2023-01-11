@@ -10,40 +10,7 @@ router.post('/api/bloodBankSignUp', userController.bloodBankSignUp)
 router.post('/api/unregister', userController.unregister)
 router.post('/changePasswd', userController.changePasswd)
 router.post('/viewUser', userController.viewUser)
-router.post('/editInfo', async (req, res) => {
-    const email = req.body.email
-    const password = req.body.password
-    connection.query(`Select Password from users where Email = '${email}'`, async (err, results, fields) => {
-        if (err) {
-            res.status(500).send({
-                "message": "Server error"
-            })
-            console.log(err)
-        } else {
-            console.log(results)
-            if (results.length == 0) {
-                res.redirect('/')
-            }
-            if(password == results[0].Password) {
-                res.render('editInfo.hbs', {
-                    'email': email,
-                    'password': password
-                })
-            }
-            else {
-                res.redirect('/')
-            }
-        }
-    })
-})
-
-// router.get('/dashboard/:email', async (req, res) => {
-//     const finish = () => {
-//         console.log("done")
-//     }
-//     await setInterval(finish, 3000)
-//     res.redirect('../')
-// })
+router.post('/editInfo', userController.editInfo)
 router.get('/logout', (req, res) => {
     res.render('')
 })

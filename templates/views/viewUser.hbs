@@ -33,6 +33,36 @@
               <button type="submit">DashBoard</button><span>/{{result.Name}}</span>
             </form>
         </div>
+        <div class="user-container">
+            <div class="section name-section">
+                <label for="name">Name</label>
+                <input name="name" type="text" value={{result.Name}} readonly="read-only">
+            </div>
+            <div class="section email-section">
+                <label for="email">Email</label>
+                <input name="email" type="email" value={{result.Email}} readonly="read-only">
+            </div>
+            <div class="section group-section">
+                <label for="group">Blood Group</label>
+                <input name="group" type="text" value={{result.Bgroup}} readonly="read-only">
+            </div>
+            <div class="section number-section">
+                <label for="number">Mobile Number</label>
+                <input name="number" type="number" value={{result.PhNo}} readonly="read-only">
+            </div>
+            <div class="section age-section">
+                <label for="age">Age</label>
+                <input name="age" type="number" value={{result.Age}} readonly="read-only">
+            </div>
+            <div class="section gender-section">
+                <label for="gender">Gender</label>
+                <input name="gender" type="text" value={{result.Gender}} readonly="read-only">
+            </div>
+            <div class="section location-section">
+                <label for="location">Location</label>
+                <input name="location" type="text" value={{result.Location}} readonly="read-only">
+            </div>
+        </div>
     </main>
 </body>
 </html>
