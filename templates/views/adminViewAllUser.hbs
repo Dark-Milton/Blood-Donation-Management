@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/adminViewAllUser.css">
+    <title>Login</title>
+    <script src="../js/bloodbankdash.js" defer></script>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/adminPage" method="post">
+              <input class="hidden" name="name" type="text" value="{{admin}}">
+              <input class="hidden" name="password" type="password" value="{{adminPassword}}">
+              <button type="submit">DashBoard</button><span>/Users</span>
+            </form>
+        </div>
+      </div>
+       <div class="user-container" section id="vol-sect">
+        <div class="header-user-container">
+        <h1>Welcome {{ admin }}</h1>
+        <ul class="volunt container">
+            {{#each result}}
+            <form class="vol" action="/adminViewUser" method="post">
+                <input class="hidden" type="text" name="name" value={{ ../admin }}>
+                <input class="hidden" type="password" name="password" value="{{ ../adminPassword }}">
+                <span class=" vol-i number">{{this.Name}}</span>
+                <input class="hidden" type="email" name="userEmail" value="{{this.Email}}">
+                <span class=" vol-i blood-group">{{this.Bgroup}}<i class="fa fa-tint" aria-hidden="true"></i></span>
+                <span class=" vol-i  location">{{this.Location}}</span>
+                <button type="submit" class="vol-i">View More</button>
+            </form>
+            {{/each}}
+        </ul>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

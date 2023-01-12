@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/prerequisite.css">
     <link rel="stylesheet" href="/css/nav.css">
     <link rel="stylesheet" href="/css/userdash.css">
+    <link rel="stylesheet" href="/css/adminPage.css">
     <title>Login</title>
     <script src="/js/userdash.js" defer></script>
 </head>
@@ -27,7 +28,23 @@
     </nav>
     <main>
       <div class="user-container">
-        <h1>Welcome {{user.Name}}</h1> 
+        <div class="header">
+        <div class="welcome-txt">
+            <h1>Welcome {{adminResult.Name}}</h1>   
+        </div>
+        <div class="tabs">
+            <form action="/adminViewAllUser" method="post">
+                <input class="hidden" name="name" type="text" value="{{adminResult.Name}}">
+                <input class="hidden" name="password" type="password" value="{{adminResult.Password}}">
+                <button class="user-btn" type="submit">Users</button>
+            </form>
+            <form action="/adminViewBloodBank" method="post">
+                <input class="hidden" name="name" type="text" value="{{adminResult.Name}}">
+                <input class="hidden" name="password" type="password" value="{{adminResult.Password}}">
+                <button class="bloodBank-btn" type="submit">Blood Banks</button>
+            </form>
+        </div>
+        </div>
           <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
             <img src="..." class="rounded me-2" alt="...">
@@ -41,64 +58,24 @@
         <div class="details">
           <div class="card-header">
             <h4 class="data-header">Your Data:-</h4>
-            <form action="/editInfo" method="post">
-              <input class="hidden" name="email" type="email" value="{{user.Email}}">
-              <input class="hidden" name="password" type="password" value="{{user.Password}}">
-              <button type="submit">Edit Information ?</button>
-            </form>
             {{!-- <a href="/editInfo/{{user.Email}}">Edit information ?</a> --}}
           </div>
           <div class="card">
-          <form action="/changePasswd" method="post">
+          <form action="/adminEditInfo" method="post">
             <div class="info even-columns">
-              <label for="name">Name : </label>
-              <input name="name" value="{{user.Name}}" readonly="readonly"></input>
+              <label for="admin">Name : </label>
+              <input name="name" value="{{adminResult.Name}}" readonly="readonly"></input>
             </div>
             <div class="info even-columns">
-              <label for="email">Email : </label>
-              <input name="email" value={{user.Email}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns">
-              <label for="group">Blood Group : </label>
-              <input name="group" value={{user.Bgroup}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns">
-              <label for="PhNo">Mobile Number : </label>
-              <input name="PhNo" value={{user.PhNo}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns">
-              <label for="PhNo">Age : </label>
-              <input name="PhNo" value={{user.Age}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns">
-              <label for="PhNo">Gender : </label>
-              <input name="PhNo" value={{user.Gender}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns">
-              <label for="location">Location : </label>
-              <input name="location" value={{user.Location}} readonly="readonly"></input>
-            </div>
-            <div class="info even-columns hidden">
-              <label for="password"></label>
-              <input name="password" value={{user.Password}} readonly="readonly"></input>
+              <label for="password">Password</label>
+              <input name="password" value={{adminResult.Password}} readonly="readonly"></input>
             </div>
             {{!-- <a href="/changePasswd/{{user.Email}}">Change Password?</a> --}}
             {{!-- <form action="/api/userlogin" method="post">
               <input class="hidden" name="email" type="email" value="{{user.Email}}">
               <input class="hidden" name="passwd" type="passwd" value="{{user.Password}}">
               <button type="submit">Edit Information ?</button>
-            </form> --}}
-            <button type="submit" class="changepasswd">Change Password</button>
-            
-          </form>
-          <form action="/api/unregister" method="post">
-            <input class="hidden" name="email" type="email" value="{{user.Email}}">
-            <button type="button" class="unregister">Unenroll</button>
-            <div class="confirmation">
-              <span>Are you Sure?</span>
-              <button type="submit">OK</button>
-              <button type="button" class="cancel">Cancel</button>
-            </div>
+            </form> --}}            
           </form>
           </div>
         </div>

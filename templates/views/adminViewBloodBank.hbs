@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/adminViewBloodBank.css">
+    <title>Login</title>
+    <script src="../js/bloodbankdash.js" defer></script>
+    <script>
+      function confirm1() {
+      const addBtn = document.querySelector('.add');
+      const formTag = document.querySelector('.confirm');
+        console.log("Enter");
+        formTag.classList.toggle('confirm')
+      }
+    </script>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/adminPage" method="post">
+              <input class="hidden" name="name" type="text" value="{{admin}}">
+              <input class="hidden" name="password" type="password" value="{{adminPassword}}">
+              <button type="submit">DashBoard</button><span>/Blood Banks</span>
+            </form>
+        </div>
+      </div>
+       <div class="user-container" section id="vol-sect">
+        <div class="header-user-container">
+        <div class="header">
+        <h1>Welcome {{ admin }}</h1>
+        <button onClick="confirm1()" class="add">+ Add</button>
+        </div>
+        <ul class="volunt container">
+            <form class="vol confirm" action="/adminViewBloodBank" method="post">
+              <input class="hidden" name="name" type="text" value="{{admin}}">
+              <input class="hidden" name="password" type="password" value="{{adminPassword}}">
+              <input class="hidden" name="flag" type="number" value="1">
+              <div class=" vol-i-new password"><input type="text" name="bloodBankName" placeholder="Name"/></div>
+              <div class=" vol-i-new password"><input type="text" name="bloodBankPassword" placeholder="Password"/></div>
+              <button class="vol-i" type="submit">+ Add</button>
+            </form>
+            {{#if result}}
+            {{#each result}}
+            <form class="vol" action="/adminViewBloodBank" method="post">
+                <input class="hidden" type="text" name="name" value={{ ../admin }}>
+                <input class="hidden" type="password" name="password" value="{{ ../adminPassword }}">
+                <input class="hidden" type="text" name="bloodBankName" value="{{ this.Name }}">
+                <input class="hidden" name="flag" type="number" value="2">
+                <span class=" vol-i number">{{this.Name}}</span>
+                <span class=" vol-i password">{{this.Password}}</span>
+                <button type="submit" class="vol-i">Delete</button>
+            </form>
+            {{/each}}
+            {{/if}}
+        </ul>
+        </div>
+    </div>
+    </main>
+</body>
+</html>

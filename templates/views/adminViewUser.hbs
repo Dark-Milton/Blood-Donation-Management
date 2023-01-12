@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User</title>
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/viewUser.css">
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+        <main class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/adminViewAllUser" method="post">
+              <input class="hidden" name="name" type="text" value="{{admin}}">
+              <input class="hidden" name="password" type="password" value="{{adminPassword}}">
+              <button type="submit">Users</button><span>/{{result.Name}}</span>
+            </form>
+        </div>
+        <div class="user-container">
+            <div class="section name-section">
+                <label for="name">Name</label>
+                <input name="name" type="text" value={{result.Name}} readonly="read-only">
+            </div>
+            <div class="section email-section">
+                <label for="email">Email</label>
+                <input name="email" type="email" value={{result.Email}} readonly="read-only">
+            </div>
+            <div class="section group-section">
+                <label for="group">Blood Group</label>
+                <input name="group" type="text" value={{result.Bgroup}} readonly="read-only">
+            </div>
+            <div class="section number-section">
+                <label for="number">Mobile Number</label>
+                <input name="number" type="number" value={{result.PhNo}} readonly="read-only">
+            </div>
+            <div class="section age-section">
+                <label for="age">Age</label>
+                <input name="age" type="number" value={{result.Age}} readonly="read-only">
+            </div>
+            <div class="section gender-section">
+                <label for="gender">Gender</label>
+                <input name="gender" type="text" value={{result.Gender}} readonly="read-only">
+            </div>
+            <div class="section location-section">
+                <label for="location">Location</label>
+                <input name="location" type="text" value={{result.Location}} readonly="read-only">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

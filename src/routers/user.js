@@ -4,7 +4,7 @@ const {connection, mysql} = require('../db/sql')
 const userController = require('../controllers/userController');
 
 router.get('', (req, res) => {
-    connection.query(`select Name, Bgroup from users LIMIT 10`, async (err, results, field) => {
+    connection.query(`select Name, Bgroup from users LIMIT 7`, async (err, results, field) => {
             res.render('index.hbs', {
                 result: results
             })
@@ -22,5 +22,13 @@ router.post('/editInfo', userController.editInfo)
 router.get('/logout', (req, res) => {
     res.redirect('/')
 })
+
+router.get('/adminLogin', userController.adminLogin)
+router.post('/adminPage', userController.adminPage)
+router.post('/adminViewAllUser', userController.adminViewAllUser)
+router.post('/adminViewBloodBank', userController.adminViewBloodBank)
+router.post('/adminViewUser', userController.adminViewUser)
+
+
 
 module.exports = router

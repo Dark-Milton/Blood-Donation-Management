@@ -401,3 +401,156 @@ exports.editInfo = async (req, res) => {
         }
     })
 }
+
+exports.adminLogin = (req, res) => {
+    res.render('adminLogin')
+}
+exports.adminPage = (req, res) => {
+    const adminName = req.body.name
+    const adminPassword = req.body.password
+    console.log(req.body)
+    connection.query(`select * from Admin where Name = "${adminName}"`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            if (results.length == 0) {
+                return res.status(401).send({
+                    "message": "The entered credentials do not match"
+                })
+            }
+            // const match = await bcrypt.compare(userPassword, results[0].password)
+            console.log(results)
+            match = (adminPassword == results[0].Password) &&(adminName == results[0].Name)
+            if (match) {
+                res.render('adminPage.hbs', {
+                    adminResult: results[0]
+                })
+            } else {
+                res.status(401).send({
+                    "message": "The entered credentials do not match"
+                })
+            }
+        }
+    })   
+}
+exports.adminViewAllUser = (req,res) => {
+    const admin = req.body.name
+    const adminPassword = req.body.password
+    connection.query(`select Name, Email, Bgroup, PhNo, Age, Gender, Location from users`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            if (results.length == 0) {
+                return res.status(401).send({
+                    "message": "The entered user do not exist"
+                })
+            }
+            res.render('adminViewAllUser', {
+                result: results,
+                'admin': admin,
+                'adminPassword': adminPassword
+            })
+        }
+    }) 
+}
+exports.adminViewBloodBank = (req,res) => {
+    const admin = req.body.name
+    const adminPassword = req.body.password
+    const bloodBankName = req.body.bloodBankName
+    const bloodBankPassword = req.body.bloodBankPassword
+    const flag = req.body.flag
+    // if(flag == undefined)
+    // {
+    //     connection.query(`select * from Bloodbank`, async (err, results, field) => {
+    //     if (err) {
+    //         res.status(500).send({
+    //             "message": "Server error"
+    //         })
+    //         console.log(err)
+    //     } else {
+    //         if (results.length == 0) {
+    //             return res.status(401).send({
+    //                 "message": "The entered user do not exist"
+    //             })
+    //         }
+    //         res.render('adminViewBloodBank', {
+    //             result: results,
+    //             'admin': admin,
+    //             'adminPassword': adminPassword
+    //         })
+    //         }
+    //     }) 
+    // }
+    // else 
+    if(flag == 1) {
+        connection.query(`insert into BloodBank(Name, Password) Values ("${bloodBankName}", "${bloodBankPassword}")`, (err, results, field) => {
+            if (err) {
+                console.log(err)
+                if (err.errno === 1062) {
+                    return res.status(406).send({
+                        "message": "The entered Name is already registered"
+                    })
+                    
+                }
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+        })
+    }
+    else if(flag == 2) {
+        connection.query(`delete from Bloodbank where Name="${bloodBankName}"`, (err, results, field) => {
+            if (err) {
+                console.log(err)
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+        })
+    }
+    console.log(admin, adminPassword)
+    connection.query(`select * from Bloodbank`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            res.render('adminViewBloodBank', {
+                result: results,
+                'admin': admin,
+                'adminPassword': adminPassword
+            })
+            }
+        })
+}
+exports.adminViewUser = (req, res) => {
+    const userEmail = req.body.userEmail
+    const admin = req.body.name
+    const adminPassword = req.body.password
+    connection.query(`select Name, Email, Bgroup, PhNo, Age, Gender, Location from users where Email = "${userEmail}"`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            if (results.length == 0) {
+                return res.status(401).send({
+                    "message": "The entered user do not exist"
+                })
+            }
+            res.render('adminViewUser', {
+                result: results[0],
+                'admin': admin,
+                'adminPassword': adminPassword
+            })
+        }
+    }) 
+};
