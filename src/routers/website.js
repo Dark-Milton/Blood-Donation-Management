@@ -2,9 +2,7 @@ const express = require('express');
 
 const router = new express.Router()
 
-router.get('', (req, res) => {
-    res.render('index.hbs')
-})
+
 
 router.get('/userlogin', (req, res) => {
     res.render('userlogin.hbs')

@@ -27,3 +27,7 @@ app.get('*', (req, res) => {
 app.listen(3000, () => {
     console.log('Exp2 Server is running')
 })
+hbs.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});

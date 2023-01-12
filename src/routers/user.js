@@ -3,6 +3,14 @@ const router = new express.Router()
 const {connection, mysql} = require('../db/sql')
 const userController = require('../controllers/userController');
 
+router.get('', (req, res) => {
+    connection.query(`select Name, Bgroup from users LIMIT 10`, async (err, results, field) => {
+            res.render('index.hbs', {
+                result: results
+            })
+    }) 
+})
+
 router.post('/api/userLogin', userController.userLogin)
 router.post('/api/userSignUp', userController.userSignUp)
 router.post('/api/bloodBankLogin', userController.bloodBankLogin)
@@ -12,7 +20,7 @@ router.post('/changePasswd', userController.changePasswd)
 router.post('/viewUser', userController.viewUser)
 router.post('/editInfo', userController.editInfo)
 router.get('/logout', (req, res) => {
-    res.render('')
+    res.redirect('/')
 })
 
 module.exports = router
