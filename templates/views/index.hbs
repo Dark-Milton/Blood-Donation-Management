@@ -106,9 +106,16 @@
         </div>
     </section>
     {{#if result}}
-    <section>
-      <div></div>
-      <div class="user-container" id="vol-sect">
+    <section class="volunteer">
+      <div class="user-container container" id="vol-sect">
+      <div class="title-head">
+            <h1 class="title">Our Super Heroes </h1>
+        </div>
+        <p class="content">We depend on volunteers! Volunteers make up 96% of our total<span class="line"><br></span>
+            workforce and carry on our humanitarian work. Blood donation is healthy,<span class="line"><br></span> our
+            volunteers are available 24/7 to help and donate
+            blood. Blood banks store blood<span class="line"><br></span> bags but our volunteers are there with you in
+            an emergency for a blood transfusion real time.</p>
           <ul class="volunt container">
               {{#each result}}
               <form class="vol">
@@ -146,6 +153,78 @@
         </div>
       </div>
     </section>
+    {{#if faq}}
+    <section class="faq" id="faq">
+      <div class="container faq-container">
+        <div class="title-head">
+            <h1 class="title">Frequently Asked Questions</h1>
+        </div>
+        <p class="content">We depend on volunteers! Volunteers make up 96% of our total<span class="line"><br></span>
+            workforce and carry on our humanitarian work. Blood donation is healthy,<span class="line"><br></span> our
+            volunteers are available 24/7 to help and donate
+            blood. Blood banks store blood<span class="line"><br></span> bags but our volunteers are there with you in
+            an emergency for a blood transfusion real time.</p>
+        
+        {{#each faq}}
+        <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q.{{this.Question}}</h3>
+        </div>
+        <div class="faq-ans">
+          <p>{{this.Answer}}</p>
+        </div>
+        </div>
+        {{/each}}
+        {{!-- <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q.How does the blood donation process work?</h3>
+        </div>
+        <div class="faq-ans">
+          <p>Donating blood is a simple thing to do, but can make a big difference in the lives of others. The donation process from the time you arrive until the time you leave takes about an hour. The donation itself is only about 8-10 minutes on average. The steps in the process are:
+
+Registration
+
+You will complete donor registration, which includes information such as your name, address, phone number, and donor identification number (if you have one).
+You will be asked to show a donor card, driver’s license or two other forms of ID.</p>
+        </div>
+        </div>
+        <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q. What should I do after donating blood?</h3>
+        </div>
+        <div class="faq-ans">
+          <p>Drink an extra four glasses (eight ounces each) of non-alcoholic liquids.<br>
+Keep your bandage on and dry for the next five hours, and do not do heavy exercising or lifting.<br>
+If the needle site starts to bleed, raise your arm straight up and press on the site until the bleeding stops.</p>
+        </div>
+        </div>
+        <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q.How long will it take to replenish the pint of blood I donate?</h3>
+        </div>
+        <div class="faq-ans">
+          <p>The plasma from your donation is replaced within about 24 hours. Red cells need about four to six weeks for complete replacement. That’s why at least eight weeks are required between whole blood donations.</p>
+        </div>
+        </div>
+        <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q.Who can donate blood?</h3>
+        </div>
+        <div class="faq-ans">
+          <p>In most states, donors must be age 17 or older. Some states allow donation by 16-year-olds with a signed parental consent form. Donors must weigh at least 110 pounds and be in good health. Additional eligibility criteria apply.</p>
+        </div>
+        </div>
+        <div class="faq-sections">
+        <div class="faq-qn">
+          <h3>Q.Am I eligible to donate if I have been quarantined for COVID-19?</h3>
+        </div>
+        <div class="faq-ans">
+          <p>If you are quarantined for any reason, you are not eligible to donate during the quarantine time period. If you are past the quarantine time and have been symptom-free for 10 days, you will be eligible to donate blood. </p>
+        </div>
+        </div> --}}
+        </div>
+    </section>
+    {{/if}}
     </main>
     <footer>
       <div class="footer-content">
@@ -171,7 +250,7 @@
               </div>
             </div>
           </div>
-          <h6>Copyright © All rights reserved. 2022</h6>
+          <h6>Copyright © All rights reserved. 2023</h6>
       </div>
   </footer>
   </body>
