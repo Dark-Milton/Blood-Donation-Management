@@ -24,7 +24,7 @@
     <main class="container">
         <div class="crumbs">
             {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
-            <form action="/api/bloodBankLogin" method="post">
+            <form action="/api/userLogin" method="post">
               <input class="hidden" name="email" type="email" value="{{email}}">
               <input class="hidden" name="password" type="password" value="{{password}}">
               <input class="hidden" name="update" type="number" value="2">

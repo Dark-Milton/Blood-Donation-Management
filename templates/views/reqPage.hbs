@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View User</title>
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/viewUser.css">
+    <link rel="stylesheet" href="/css/reqPage.css">
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+        <main class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/api/bloodBankLogin" method="post">
+              <input class="hidden" name="name" type="text" value="{{user}}">
+              <input class="hidden" name="password" type="password" value="{{password}}">
+              <button type="submit">DashBoard</button><span>/Request Blood</span>
+            </form>
+        </div>
+        <div class="card">
+            <form action="/api/bloodBankLogin" method="post">
+                <div class="name-con">
+                    <label for"name" >Name</label>
+                    <input type="text" name="name" value={{user}}>
+                </div>
+                <div class="phno-con">
+                    <label for"phno" >Contact</label>
+                    <input type="text" name="phno" value={{phno}}>
+                </div>
+                <div class="hidden">
+                    <label for"password" >Password</label>
+                    <input type="text" name="password" value={{password}}>
+                </div>
+                <div class="req-con">
+                    <label for"requirements" >Reqirements(litres)</label>
+                    <input type="number" name="requirements" value="{{requirements}}">
+                </div>
+                <div class="desc-con">
+                    <label for"desc" >Description</label>
+                    <input type="text" name="desc" value="{{desc}}">
+                </div>
+                {{#if requirements}}
+                <input class="hidden" name="flag" value="2">
+                {{else}}
+                <input class="hidden" name="flag" value="1">
+                {{/if}}
+                <div class="btn-con">
+                    <button>Update</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

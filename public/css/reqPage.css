@@ -1,0 +1,30 @@
+.card form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+.name-con,
+.phno-con,
+.req-con,
+.desc-con {
+    display: grid;
+}
+.name-con,
+.phno-con,
+.req-con {
+    width: 40%;
+}
+.desc-con,
+.btn-con {
+    width: 100%;
+}
+.btn-con {
+    display: grid;
+    place-items: center;
+}
+.btn-con button {
+    background-color: green;
+    font-weight: 400;
+    font-size: 22px;
+    color: #fff;
+}

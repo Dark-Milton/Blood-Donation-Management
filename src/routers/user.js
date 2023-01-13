@@ -23,6 +23,7 @@ router.post('/api/unregister', userController.unregister)
 router.post('/changePasswd', userController.changePasswd)
 router.post('/viewUser', userController.viewUser)
 router.post('/editInfo', userController.editInfo)
+router.post('/userReqPage', userController.userReqPage)
 router.get('/logout', (req, res) => {
     res.redirect('/')
 })
@@ -33,6 +34,6 @@ router.post('/adminViewAllUser', userController.adminViewAllUser)
 router.post('/adminViewBloodBank', userController.adminViewBloodBank)
 router.post('/adminViewUser', userController.adminViewUser)
 
-
+router.post('/reqPage', userController.reqPage)
 
 module.exports = router

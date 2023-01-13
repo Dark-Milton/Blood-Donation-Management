@@ -1,0 +1,12 @@
+.vol {
+    flex-wrap: wrap;
+}
+.vol span {
+    width: 25%;
+}
+.vol .desc {
+    color: var(--clr-accent-600);
+    margin-block: 1rem;
+    padding-inline: 2rem;
+    width: 100%;
+}

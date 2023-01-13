@@ -21,6 +21,14 @@
         </div>
         </a>
         <ul class="primary-nav-items">
+          <li>
+            <form action="/userReqPage" method="post" style="background-color: inherit;">
+                <input class="hidden" type="text" name="name" value={{ user.Name }}>
+                <input class="hidden" type="email" name="email" value={{ user.Email }}>
+                <input class="hidden" type="password" name="password" value="{{ user.Password }}">
+                <button type="submit" class="vol-i">Requests</button>
+            </form>
+          </li>
           <li><a href="/logout"><button>Logout</button></a></li>
         </ul>
       </div>

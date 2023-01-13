@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/prerequisite.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/bloodbankdash.css">
+    <link rel="stylesheet" href="/css/adminViewBloodBank.css">
+    <link rel="stylesheet" href="/css/userReqPage.css">
+    <title>Login</title>
+    <script src="../js/bloodbankdash.js" defer></script>
+    <script>
+      function confirm1() {
+      const addBtn = document.querySelector('.add');
+      const formTag = document.querySelector('.confirm');
+        console.log("Enter");
+        formTag.classList.toggle('confirm')
+      }
+    </script>
+</head>
+<body>
+    <nav>
+      <div class="nav-container">
+        <a href="../"><div class="logo-container">
+          <div class="logo"></div>
+          <h1>Blood Care</h1>
+        </div>
+        </a>
+        <ul class="primary-nav-items">
+          <li><a href="/logout"><button>Logout</button></a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <div class="crumbs">
+            {{!-- <a href="/dashboard/{{email}}">Dashboard</a><span>/Edit Password</span> --}}
+            <form action="/api/userLogin" method="post">
+              <input class="hidden" name="name" type="text" value="{{name}}">
+              <input class="hidden" name="email" type="text" value="{{email}}">
+              <input class="hidden" name="password" type="password" value="{{password}}">
+              <button type="submit">DashBoard</button><span>/Blood Banks</span>
+            </form>
+        </div>
+      </div>
+       <div class="user-container" section id="vol-sect">
+        {{#if result}}
+        <ul class="volunt container">
+            {{#each result}}
+            <form class="vol">
+                <span class=" vol-i index">{{inc @index}}</span>
+                <span class=" vol-i number">{{this.Name}}</span>
+                <span class=" vol-i phno">{{this.PhNo}}</span>
+                <span class=" vol-i requirements">{{this.Requirements}} Litres</span>
+                <span class=" vol-i desc">{{this.Description}}</span>
+            </form>
+            {{/each}}
+        </ul>
+        {{else}}
+        <div style="text-align: center; background-color: #fff">No Requests Yet</div>
+        {{/if}}
+    </div>
+    </main>
+</body>
+</html>

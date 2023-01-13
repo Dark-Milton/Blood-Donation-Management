@@ -245,10 +245,65 @@ exports.userSignUp =  async (req, res) => {
     console.log(req.body)
 };
 
+
+exports.userReqPage = (req, res) => {
+    const userName = req.body.name
+    const userEmail = req.body.email
+    const userPassword = req.body.password
+    connection.query(`select * from Request_Blood`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+                res.render('userReqPage', {
+                    'name': userName,
+                    'email': userEmail,
+                    'password': userPassword,
+                    'result': results
+                })
+        }
+    })
+}
+
+
+
 exports.bloodBankLogin = (req, res) => {
     const userName = req.body.name
     const userPassword = req.body.password
+    const userReq = req.body.requirements
+    const userPhNo = req.body.phno
+    const updateFlag = req.body.flag
+    const userDesc = req.body.desc
     console.log(req.body)
+    if(updateFlag == 1) {
+        connection.query(`insert into Request_Blood(Name, PhNo, Requirements, Description) Values ("${userName}", "${userPhNo}", "${userReq}", "${userDesc}")`, (err, results, field) => {
+            if (err) {
+                console.log(err)
+                if (err.errno === 1062) {
+                    return res.status(406).send({
+                        "message": "The entered email is already registered"
+                    })
+                    
+                }
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+        })
+    }
+    else if(updateFlag == 2) {
+        connection.query(`update  Request_Blood Set Requirements = "${userReq}", Description = "${userDesc}" where Name = "${userName}"`, (error, userresults, fields) => {
+            if(error) {
+                console.log(error)
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+            
+        })
+    }
     connection.query(`select * from BloodBank where Name = "${userName}"`, async (err, results, field) => {
         if (err) {
             res.status(500).send({
@@ -268,10 +323,11 @@ exports.bloodBankLogin = (req, res) => {
                 // req.session.userName = results[0].Name
                 // res.status(200).send()
                 connection.query(`Select * from users`, async (error, userresults, fields) => {
-                    console.log(userresults)
                     res.render('bloodbankdash', {
                         result: userresults,
                         user: userName,
+                        'phno': results[0].PhNo,
+                        'requirements': userReq,
                         password: userPassword
                     })
                 })
@@ -463,6 +519,7 @@ exports.adminViewBloodBank = (req,res) => {
     const admin = req.body.name
     const adminPassword = req.body.password
     const bloodBankName = req.body.bloodBankName
+    const bloodBankPhNo = req.body.bloodBankPhNo
     const bloodBankPassword = req.body.bloodBankPassword
     const flag = req.body.flag
     // if(flag == undefined)
@@ -489,7 +546,7 @@ exports.adminViewBloodBank = (req,res) => {
     // }
     // else 
     if(flag == 1) {
-        connection.query(`insert into BloodBank(Name, Password) Values ("${bloodBankName}", "${bloodBankPassword}")`, (err, results, field) => {
+        connection.query(`insert into BloodBank(Name, PhNo, Password) Values ("${bloodBankName}", "${bloodBankPhNo}", "${bloodBankPassword}")`, (err, results, field) => {
             if (err) {
                 console.log(err)
                 if (err.errno === 1062) {
@@ -554,3 +611,38 @@ exports.adminViewUser = (req, res) => {
         }
     }) 
 };
+
+exports.reqPage = (req, res) => {
+    const user = req.body.user
+    const password = req.body.password
+    const phno = req.body.phno    
+    const userReq = req.body.requirements
+    const userDesc = req.body.desc    
+    connection.query(`select * from Request_Blood where Name = "${user}"`, async (err, results, field) => {
+        if (err) {
+            res.status(500).send({
+                "message": "Server error"
+            })
+            console.log(err)
+        } else {
+            if(results.length == 0) {
+                res.render('reqPage', {
+                    'user': user,
+                    'password': password,
+                    'phno': phno,
+                    'requirements': userReq,
+                    'desc': userDesc,
+                })
+            }
+            else {
+                res.render('reqPage', {
+                    'user': results[0].Name,
+                    'password': password,
+                    'phno': results[0].PhNo,
+                    'requirements': results[0].Requirements,
+                    'desc': results[0].Description,
+                })
+            }
+        }
+    }) 
+}
