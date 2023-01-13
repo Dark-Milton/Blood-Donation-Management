@@ -24,6 +24,31 @@ router.post('/changePasswd', userController.changePasswd)
 router.post('/viewUser', userController.viewUser)
 router.post('/editInfo', userController.editInfo)
 router.post('/userReqPage', userController.userReqPage)
+router.get('/contact', (req, res) => {
+    res.render('contactPage')
+})
+router.post('/contact', (req, res) => {
+    const userName = req.body.name
+    const userType = req.body.type
+    const userPhNo = req.body.phno
+    const userMessage = req.body.message
+    if(userName != '' && userType != '' && userPhNo != '' && userMessage != '')
+        connection.query(`insert into Contact_Us(Name, Type, PhNo, Message) Values ("${userName}", "${userType}", "${userPhNo}", "${userMessage}")`, (err, results, field) => {
+            if (err) {
+                console.log(err)
+                if (err.errno === 1062) {
+                    return res.status(406).send({
+                        "message": "The entered email is already registered"
+                    })
+                    
+                }
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+        })
+    res.render('contactPage')
+})
 router.get('/logout', (req, res) => {
     res.redirect('/')
 })
