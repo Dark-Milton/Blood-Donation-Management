@@ -17,15 +17,5 @@ router.get('/bloodbanklogin', (req, res) => {
 router.get('/bloodbanksignup', (req, res) => {
     res.render('bloodbanksignup.hbs')
 })
-router.get('/changePasswd', (req, res) => {
-    res.render('changePasswd.hbs',
-    {email: req.body.result.Email})
-})
-
-router.get('/welcome', (req, res) => {
-    res.render('welcome.hbs', {
-        "user": "demo user"
-    })
-})
 
 module.exports = router

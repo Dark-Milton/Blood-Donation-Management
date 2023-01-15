@@ -274,11 +274,12 @@ exports.bloodBankLogin = (req, res) => {
     const userPassword = req.body.password
     const userReq = req.body.requirements
     const userPhNo = req.body.phno
+    const bloodType = req.body.type
     const updateFlag = req.body.flag
     const userDesc = req.body.desc
     console.log(req.body)
     if(updateFlag == 1) {
-        connection.query(`insert into Request_Blood(Name, PhNo, Requirements, Description) Values ("${userName}", "${userPhNo}", "${userReq}", "${userDesc}")`, (err, results, field) => {
+        connection.query(`insert into Request_Blood(Name, PhNo, Blood_type, Requirements, Description) Values ("${userName}", "${userPhNo}", "${bloodType}", "${userReq}", "${userDesc}")`, (err, results, field) => {
             if (err) {
                 console.log(err)
                 if (err.errno === 1062) {
@@ -294,7 +295,7 @@ exports.bloodBankLogin = (req, res) => {
         })
     }
     else if(updateFlag == 2) {
-        connection.query(`update  Request_Blood Set Requirements = "${userReq}", Description = "${userDesc}" where Name = "${userName}"`, (error, userresults, fields) => {
+        connection.query(`update  Request_Blood Set Blood_type = "${bloodType}", Requirements = "${userReq}", Description = "${userDesc}" where Name = "${userName}"`, (error, userresults, fields) => {
             if(error) {
                 console.log(error)
                 res.status(500).send({
@@ -616,6 +617,7 @@ exports.reqPage = (req, res) => {
     const user = req.body.user
     const password = req.body.password
     const phno = req.body.phno    
+    const bloodType = req.body.type    
     const userReq = req.body.requirements
     const userDesc = req.body.desc    
     connection.query(`select * from Request_Blood where Name = "${user}"`, async (err, results, field) => {
@@ -630,6 +632,7 @@ exports.reqPage = (req, res) => {
                     'user': user,
                     'password': password,
                     'phno': phno,
+                    'type': bloodType,
                     'requirements': userReq,
                     'desc': userDesc,
                 })
@@ -639,6 +642,7 @@ exports.reqPage = (req, res) => {
                     'user': results[0].Name,
                     'password': password,
                     'phno': results[0].PhNo,
+                    'type': results[0].Blood_type,
                     'requirements': results[0].Requirements,
                     'desc': results[0].Description,
                 })

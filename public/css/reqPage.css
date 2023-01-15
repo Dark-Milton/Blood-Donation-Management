@@ -5,12 +5,14 @@
 }
 .name-con,
 .phno-con,
+.type-con,
 .req-con,
 .desc-con {
     display: grid;
 }
 .name-con,
 .phno-con,
+.type-con,
 .req-con {
     width: 40%;
 }
