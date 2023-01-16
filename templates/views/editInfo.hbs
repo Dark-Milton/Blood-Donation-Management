@@ -14,13 +14,21 @@
 <body>
     <nav>
       <div class="nav-container">
-        <a href="../"><div class="logo-container">
+        <div class="logo-container">
           <div class="logo"></div>
           <a href="/">
           <h1>Blood Care</h1>
           </a>
         </div>
-        </a>
+        <ul class="primary-nav-items" style="display: none;">
+          <li><a href="/userlogin"><button>Log In</button></a></li>
+          <li><a href="/usersignup"><button data-type="inverted" >Register</button></a></li>
+        </ul>
+        <div class="mobile-nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+          <svg class="icon">
+            <use xlink:href="icons/hamburger.svg#hamburger"></use>
+          </svg>
+        </div>
       </div>
     </nav>
     <main class="container">

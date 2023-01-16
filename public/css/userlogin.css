@@ -53,7 +53,7 @@ h2 {
     gap: 2rem;
     width: min(100%, 50ch);
     padding: 3rem 3rem;
-    background-color: var(--clr-accent-400);
+    background-color: var(--clr-bg-accent);
     border: 2px solid var(--clr-accent-800);
     border-radius: 15px;
 }

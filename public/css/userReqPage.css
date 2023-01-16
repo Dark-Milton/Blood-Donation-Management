@@ -1,3 +1,6 @@
+body {
+    background-image: url('../images/body-bg.png');
+}
 .vol {
     flex-wrap: wrap;
 }

@@ -13,18 +13,17 @@
 <body>
     <nav>
       <div class="nav-container">
-        <a href="../"><div class="logo-container">
+        <div class="logo-container">
           <div class="logo"></div>
           <a href="/">
           <h1>Blood Care</h1>
           </a>
         </div>
-        </a>
         <ul class="primary-nav-items">
           <li>
             <form class="vol" action="/reqPage" method="post" style="background-color: inherit;">
-                <input class="hidden" type="text" name="user" value={{ user }}>
-                <input class="hidden" type="text" name="phno" value={{ phno }}>
+                <input class="hidden" type="text" name="user" value="{{ user }}">
+                <input class="hidden" type="text" name="phno" value="{{ phno }}">
                 <input class="hidden" type="password" name="password" value="{{ password }}">
                 <button type="submit" class="vol-i">Request Blood</button>
             </form>
@@ -41,7 +40,7 @@
         <ul class="volunt container">
             {{#each result}}
             <form class="vol" action="/viewUser" method="post">
-                <input class="hidden" type="text" name="user" value={{ ../user }}>
+                <input class="hidden" type="text" name="user" value="{{ ../user }}">
                 <input class="hidden" type="password" name="password" value="{{ ../password }}">
                 <span class=" vol-i number">{{this.Name}}</span>
                 <input class="hidden" type="email" name="userEmail" value="{{this.Email}}">

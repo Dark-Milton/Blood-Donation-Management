@@ -1,5 +1,5 @@
 body {
-    /* background-image: linear-gradient(to bottom, var(--clr-accent-400) 70%, var(--clr-accent-300) 85%, var(--clr-accent-200) 100%); */
+    background-image: url('../images/body-bg.png');
 }
 .primary-nav-items {
   gap: 1rem

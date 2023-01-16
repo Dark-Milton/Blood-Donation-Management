@@ -1,5 +1,7 @@
 body {
     height: 100%;
+    background-image: url('../images/body-bg.png');
+
 }
 main {
     position: absolute;

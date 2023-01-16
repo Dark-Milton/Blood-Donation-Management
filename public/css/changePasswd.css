@@ -1,8 +1,8 @@
 body {
-    background-image: url('../images/give_blood.png');
-    background-position: 25% 70%;
-    background-size: auto 75%;
-    background-repeat: no-repeat;
+    background-image: url('../images/give_blood.png'), url('../images/body-bg.png');
+    background-position: 25% 70%, 100%;
+    background-size: auto 75%, contain;
+    background-repeat: no-repeat, repeat;
 }
 main {
     margin-top: 6rem;

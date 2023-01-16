@@ -295,7 +295,7 @@ exports.bloodBankLogin = (req, res) => {
         })
     }
     else if(updateFlag == 2) {
-        connection.query(`update  Request_Blood Set Blood_type = "${bloodType}", Requirements = "${userReq}", Description = "${userDesc}" where Name = "${userName}"`, (error, userresults, fields) => {
+        connection.query(`update Request_Blood Set Blood_type = "${bloodType}", Requirements = "${userReq}", Description = "${userDesc}" where Name = "${userName}"`, (error, userresults, fields) => {
             if(error) {
                 console.log(error)
                 res.status(500).send({
@@ -305,6 +305,8 @@ exports.bloodBankLogin = (req, res) => {
             
         })
     }
+    console.log(userName)
+    console.log(userPassword)
     connection.query(`select * from BloodBank where Name = "${userName}"`, async (err, results, field) => {
         if (err) {
             res.status(500).send({
@@ -325,11 +327,11 @@ exports.bloodBankLogin = (req, res) => {
                 // res.status(200).send()
                 connection.query(`Select * from users`, async (error, userresults, fields) => {
                     res.render('bloodbankdash', {
-                        result: userresults,
-                        user: userName,
+                        'result': userresults,
+                        'user': userName,
                         'phno': results[0].PhNo,
                         'requirements': userReq,
-                        password: userPassword
+                        'password': userPassword
                     })
                 })
             } else {
@@ -620,6 +622,7 @@ exports.reqPage = (req, res) => {
     const bloodType = req.body.type    
     const userReq = req.body.requirements
     const userDesc = req.body.desc    
+    console.log(req.body)
     connection.query(`select * from Request_Blood where Name = "${user}"`, async (err, results, field) => {
         if (err) {
             res.status(500).send({
@@ -639,12 +642,10 @@ exports.reqPage = (req, res) => {
             }
             else {
                 res.render('reqPage', {
+                    'result': results[0],
                     'user': results[0].Name,
                     'password': password,
-                    'phno': results[0].PhNo,
-                    'type': results[0].Blood_type,
                     'requirements': results[0].Requirements,
-                    'desc': results[0].Description,
                 })
             }
         }

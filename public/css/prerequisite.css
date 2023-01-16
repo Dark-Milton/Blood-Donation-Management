@@ -6,26 +6,6 @@
   --clr-secondary-black: hsl(261, 88%, 13%);
   --clr-primary-white: hsl(0, 0%, 100%);
 
-  --clr-avatar-bg: hsl(53, 91%, 55%);
-  --clr-text-accent-hover: 	hsl(234, 84%, 43%);
-
-  --clr-primary-accent-bg: 	hsl(260, 99%, 44%);
-  --clr-secondary-accent-bg: hsl(271, 94%, 32%);
-  --clr-secondary-bg: 	hsl(239, 100%, 8%);
-
-  --clr-button-bg: hsl(251, 93%, 34%);
-
-  --clr-text-black: var(--clr-primary-black);
-  --clr-text-maroon: 	hsl(6, 61%, 38%);
-  --clr-text-yellow: var(--clr-avatar-bg);
-  --clr-text-orange: 	hsl(29, 100%, 49%);
-  --clr-text-primary: hsl(220, 100%, 16%);
-  --clr-text-green: 	hsl(98, 69%, 23%);
-  --clr-text-purple: hsl(271, 94%, 32%);
-
-
-
-
   --clr-accent-100: #fff2f2;
   --clr-accent-200: #fec1c2;
   --clr-accent-300: #ff9092;
@@ -37,6 +17,7 @@
   --clr-accent-800: #9b0002;
   --clr-accent-900: #6a0001;
 
+  --clr-bg-accent: #F08080;
   --clr-neutral-100: hsl(0, 0%, 100%);
   --clr-neutral-200: hsl(0, 0%, 87.5%);;
   --clr-neutral-300: hsl(0, 0%, 75%);;

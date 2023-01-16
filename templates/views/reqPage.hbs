@@ -14,13 +14,12 @@
 <body>
     <nav>
       <div class="nav-container">
-        <a href="../"><div class="logo-container">
+        <div class="logo-container">
           <div class="logo"></div>
           <a href="/">
           <h1>Blood Care</h1>
           </a>
         </div>
-        </a>
         <ul class="primary-nav-items">
           <li><a href="/logout"><button>Logout</button></a></li>
         </ul>
@@ -35,19 +34,53 @@
               <button type="submit">DashBoard</button><span>/Request Blood</span>
             </form>
         </div>
+        {{#if requirements}}
         <div class="card">
             <form action="/api/bloodBankLogin" method="post">
                 <div class="name-con">
                     <label for"name" >Name</label>
-                    <input type="text" name="name" value={{user}}>
+                    <input type="text" name="name" value="{{result.Name}}">
                 </div>
                 <div class="phno-con">
                     <label for"phno" >Contact</label>
-                    <input type="text" name="phno" value={{phno}}>
+                    <input type="text" name="phno" value="{{result.PhNo}}">
                 </div>
                 <div class="hidden">
                     <label for"password" >Password</label>
-                    <input type="text" name="password" value={{password}}>
+                    <input type="text" name="password" value="{{password}}">
+                </div>
+                <div class="type-con">
+                    <label for"type" >Blood Type</label>
+                    <input type="text" name="type" value="{{result.Blood_type}}">
+                </div>
+                <div class="req-con">
+                    <label for"requirements" >Reqirements(litres)</label>
+                    <input type="number" name="requirements" value="{{result.Requirements}}">
+                </div>
+                <div class="desc-con">
+                    <label for"desc" >Description</label>
+                    <input type="text" name="desc" value="{{result.Description}}">
+                </div>
+                <input class="hidden" name="flag" value="2">
+                <div class="btn-con">
+                    <button>Update</button>
+                </div>
+            </form>
+        </div>
+        {{else}}
+        <div class="card">
+            <form action="/api/bloodBankLogin" method="post">
+                <div class="name-con">
+                    <label for"name" >Name</label>
+                    <input type="text" name="name" value="{{user}}">
+                </div>
+                <div class="phno-con">
+                    <label for"phno" >Contact</label>
+                    <input type="text" name="phno" value="{{phno}}">
+                </div>
+                <div class="hidden">
+                    <label for"password" >Password</label>
+                    <input type="text" name="password" value="{{password}}">
                 </div>
                 <div class="type-con">
                     <label for"type" >Blood Type</label>
@@ -61,16 +94,13 @@
                     <label for"desc" >Description</label>
                     <input type="text" name="desc" value="{{desc}}">
                 </div>
-                {{#if requirements}}
-                <input class="hidden" name="flag" value="2">
-                {{else}}
                 <input class="hidden" name="flag" value="1">
-                {{/if}}
                 <div class="btn-con">
                     <button>Update</button>
                 </div>
             </form>
         </div>
+        {{/if}}
     </main>
 </body>
 </html>
