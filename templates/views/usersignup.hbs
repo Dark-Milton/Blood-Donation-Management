@@ -52,7 +52,7 @@
                                 <label for="email">Email</label>
                             </div>
                             <div>
-                                <input type="email" name="email" required>
+                                <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                             </div>
                         </div>
                         <div class="group-section">
@@ -68,7 +68,7 @@
                                 <label for="PhNo">Mobile Number</label>
                             </div>
                             <div>
-                                <input type="PhNo" name="PhNo" required>
+                                <input type="PhNo" name="PhNo" pattern="[1-9]{1}[0-9]{9}" required>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,13 @@
                                 <label for="gender">Gender</label>
                             </div>
                             <div>
-                                <input name="gender" required>
+                                <input list="genders" name="gender" autocomplete="off" required>
+                                <datalist id="genders">
+                                <option value="Male">
+                                <option value="Female">
+                                <option value="Others">
+                                <option value="transgender"
+                                </datalist>
                             </div>
                         </div>
                         <div class="Location-section">

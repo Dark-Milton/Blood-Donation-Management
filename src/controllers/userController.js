@@ -525,6 +525,7 @@ exports.adminViewBloodBank = (req,res) => {
     const bloodBankPhNo = req.body.bloodBankPhNo
     const bloodBankPassword = req.body.bloodBankPassword
     const flag = req.body.flag
+    console.log(req.body)
     // if(flag == undefined)
     // {
     //     connection.query(`select * from Bloodbank`, async (err, results, field) => {
