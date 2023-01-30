@@ -59,11 +59,17 @@
             </div>
             <div class="info even-columns">
                 <label for="age">Age</label>
-                <input name="age"></input>
+                <input name="age" type="number" min="18" max="65"></input>
             </div>
             <div class="info even-columns">
                 <label for="gender">Gender</label>
-                <input name="gender" ></input>
+                {{!-- <input name="gender" ></input> --}}
+                <select name="gender" id="gender" required>
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
             </div>
             <div class="info even-columns">
                 <label for="location">Location</label>

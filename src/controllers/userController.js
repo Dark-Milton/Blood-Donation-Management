@@ -276,9 +276,26 @@ exports.bloodBankLogin = (req, res) => {
     const userPhNo = req.body.phno
     const bloodType = req.body.type
     const updateFlag = req.body.flag
+    const deleteFlag = req.body.deleteflag
     const userDesc = req.body.desc
     console.log(req.body)
-    if(updateFlag == 1) {
+    if(deleteFlag == 1) {
+        connection.query(`delete from Request_Blood where Name = "${userName}"`, (err, results, field) => {
+            if (err) {
+                console.log(err)
+                if (err.errno === 1062) {
+                    return res.status(406).send({
+                        "message": "The entered email is already registered"
+                    })
+                    
+                }
+                res.status(500).send({
+                    "message": "Server error"
+                })
+            }
+        })
+    }
+    else if(updateFlag == 1) {
         connection.query(`insert into Request_Blood(Name, PhNo, Blood_type, Requirements, Description) Values ("${userName}", "${userPhNo}", "${bloodType}", "${userReq}", "${userDesc}")`, (err, results, field) => {
             if (err) {
                 console.log(err)

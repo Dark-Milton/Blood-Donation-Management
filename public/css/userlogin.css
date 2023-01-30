@@ -91,7 +91,8 @@ form > * {
     place-items: center;
     /* gap: 0.25rem; */
 }
-form input {
+form input, 
+form select {
     border: 1px solid var(--clr-accent-800);
     border-radius: 10px;
     padding: 5px 0;

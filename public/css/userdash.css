@@ -53,12 +53,14 @@ h1 {
 .info label {
     font-size: 24px;
 }
-.info input {
+.info input,
+.info select {
     /* cursor: none; */
     text-align: center;
     padding-inline: 1rem;
     font-size: 20px;
     border-radius: 10px;
+    width: 100%;
 }
 .card a{
     margin-top: 2rem;

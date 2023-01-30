@@ -34,7 +34,6 @@
                 <div>
                     <h1>SignUp As a Donor</h1>
                 </div>
-                <h4 class="done">Successfully regsitered. Please Login. Redirecting...</h4>
                 <div class="form">
                     <form action="/api/userSignUp" method="post" class="form">
                     <div class="even-columns section-container">
@@ -59,8 +58,27 @@
                             <div>
                                 <label for="group">Blood Group</label>
                             </div>
-                            <div>
+                            {{!-- <div>
                                 <input type="group" name="group" required>
+                            </div> --}}
+                            <div>
+                                <select name="group" id="group" required>
+                                    <option value="">--None--</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+                                {{!-- <input list="groups" name="group" autocomplete="off" required>
+                                <datalist id="groups">
+                                <option value="O+">
+                                <option value="A+">
+                                <option value="B+">
+                                </datalist> --}}
                             </div>
                         </div>
                         <div class="PhNo-section">
@@ -78,7 +96,7 @@
                                 <label for="age">Age</label>
                             </div>
                             <div>
-                                <input type="number" name="age" required>
+                                <input type="number" name="age" min="18" max="65" required>
                             </div>
                         </div>
                         <div class="Gender-section">
@@ -86,12 +104,18 @@
                                 <label for="gender">Gender</label>
                             </div>
                             <div>
-                                <input list="genders" name="gender" autocomplete="off" required>
+                                <select name="gender" id="gender" required>
+                                    <option value="">--None--</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                                {{!-- <input list="genders" name="gender" autocomplete="off" required>
                                 <datalist id="genders">
                                 <option value="Male">
                                 <option value="Female">
                                 <option value="Others">
-                                </datalist>
+                                </datalist> --}}
                             </div>
                         </div>
                         <div class="Location-section">
