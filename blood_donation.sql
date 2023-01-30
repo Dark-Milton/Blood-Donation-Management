@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2023 at 06:41 AM
+-- Generation Time: Jan 29, 2023 at 12:55 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,7 +46,7 @@ INSERT INTO `admin` (`Name`, `Password`) VALUES
 --
 
 CREATE TABLE `bloodbank` (
-  `Number` int(11) NOT NULL,
+  `Bloodbank_id` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `PhNo` varchar(15) NOT NULL,
   `Password` varchar(15) NOT NULL
@@ -56,8 +56,8 @@ CREATE TABLE `bloodbank` (
 -- Dumping data for table `bloodbank`
 --
 
-INSERT INTO `bloodbank` (`Number`, `Name`, `PhNo`, `Password`) VALUES
-(12, 'Sanketh', '7349376269', 'test');
+INSERT INTO `bloodbank` (`Bloodbank_id`, `Name`, `PhNo`, `Password`) VALUES
+(21, 'G V Pai', '9876432106', 'test');
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ INSERT INTO `bloodbank` (`Number`, `Name`, `PhNo`, `Password`) VALUES
 --
 
 CREATE TABLE `contact_us` (
-  `Number` int(11) NOT NULL,
+  `Message_id` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `Type` varchar(10) NOT NULL,
   `PhNo` varchar(15) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `contact_us` (
 -- Dumping data for table `contact_us`
 --
 
-INSERT INTO `contact_us` (`Number`, `Name`, `Type`, `PhNo`, `Message`) VALUES
+INSERT INTO `contact_us` (`Message_id`, `Name`, `Type`, `PhNo`, `Message`) VALUES
 (2, 'Sumanth', 'User', '7349376269', 'Hii');
 
 -- --------------------------------------------------------
@@ -109,19 +109,13 @@ INSERT INTO `faq` (`Question`, `Answer`) VALUES
 --
 
 CREATE TABLE `request_blood` (
-  `Number` int(11) NOT NULL,
+  `Request_id` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `PhNo` varchar(15) DEFAULT NULL,
+  `Blood_type` varchar(5) NOT NULL,
   `Requirements` int(11) DEFAULT NULL,
   `Description` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `request_blood`
---
-
-INSERT INTO `request_blood` (`Number`, `Name`, `PhNo`, `Requirements`, `Description`) VALUES
-(7, 'Sanketh', '7349376269', 9, 'Emergency');
 
 -- --------------------------------------------------------
 
@@ -130,7 +124,7 @@ INSERT INTO `request_blood` (`Number`, `Name`, `PhNo`, `Requirements`, `Descript
 --
 
 CREATE TABLE `users` (
-  `Number` int(11) NOT NULL,
+  `User_id` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `Email` varchar(25) NOT NULL,
   `Bgroup` varchar(5) NOT NULL,
@@ -145,12 +139,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Number`, `Name`, `Email`, `Bgroup`, `PhNo`, `Age`, `Gender`, `Location`, `Password`) VALUES
+INSERT INTO `users` (`User_id`, `Name`, `Email`, `Bgroup`, `PhNo`, `Age`, `Gender`, `Location`, `Password`) VALUES
 (15, 'hema', 'hema@gmail.com', 'b', '944943914', 43, 'female', 'kaiga', 'test'),
 (6, 'Hegde Sumanth Shyam', 'hsumanth339@gmail.com', 'O+', '7349376269', 0, '', '', 'test'),
 (5, 'Pushpa', 'hsumanth899@gmail.com', 'O+', '7349376269', 0, '', '', 'test'),
+(24, 'Prash', 'ppp@gmail.com', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
+(22, 'Prash', 'pras@gmail', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
+(23, 'Prashanth', 'prashanth@gmail', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
+(19, 'pushpa', 'pushp@gmail.com', 'o+', '12346712', 12, 'female', 'ghjk', 'test'),
+(17, 'ruchitha', 'ruchitha@gmail.com', 'a+', '12346789', 20, 'female', 'kundapura', 'test'),
 (14, 'Sanketh', 'sankethegde143@gmail.com', 'O+', '7349376269', 30, 'Male', 'Karkala', 'test'),
-(12, 'Sumanth', 'sumanth@gmail.com', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
 (10, 'Sandhya1', 'test1@test.com', 'O+', '7349376269', 0, '', '', 'test'),
 (9, 'Sandhya', 'test@test.com', 'O+', '7349376269', 0, '', '', 'test');
 
@@ -163,27 +161,27 @@ INSERT INTO `users` (`Number`, `Name`, `Email`, `Bgroup`, `PhNo`, `Age`, `Gender
 --
 ALTER TABLE `bloodbank`
   ADD PRIMARY KEY (`Name`),
-  ADD UNIQUE KEY `Number` (`Number`);
+  ADD UNIQUE KEY `Number` (`Bloodbank_id`);
 
 --
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  ADD PRIMARY KEY (`Number`);
+  ADD PRIMARY KEY (`Message_id`);
 
 --
 -- Indexes for table `request_blood`
 --
 ALTER TABLE `request_blood`
   ADD PRIMARY KEY (`Name`),
-  ADD UNIQUE KEY `Number` (`Number`);
+  ADD UNIQUE KEY `Number` (`Request_id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`Email`),
-  ADD UNIQUE KEY `Number` (`Number`);
+  ADD UNIQUE KEY `Number` (`User_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -193,25 +191,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bloodbank`
 --
 ALTER TABLE `bloodbank`
-  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Bloodbank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `request_blood`
 --
 ALTER TABLE `request_blood`
-  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `User_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
@@ -221,7 +219,7 @@ ALTER TABLE `users`
 -- Constraints for table `request_blood`
 --
 ALTER TABLE `request_blood`
-  ADD CONSTRAINT `request_blood_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `bloodbank` (`Name`);
+  ADD CONSTRAINT `request_blood_ibfk_1` FOREIGN KEY (`Name`) REFERENCES `bloodbank` (`Name`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
