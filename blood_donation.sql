@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2023 at 12:55 PM
+-- Generation Time: Jan 31, 2023 at 03:51 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -57,7 +57,7 @@ CREATE TABLE `bloodbank` (
 --
 
 INSERT INTO `bloodbank` (`Bloodbank_id`, `Name`, `PhNo`, `Password`) VALUES
-(21, 'G V Pai', '9876432106', 'test');
+(25, 'G V Pai', '9876432106', 'test');
 
 -- --------------------------------------------------------
 
@@ -140,17 +140,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`User_id`, `Name`, `Email`, `Bgroup`, `PhNo`, `Age`, `Gender`, `Location`, `Password`) VALUES
-(15, 'hema', 'hema@gmail.com', 'b', '944943914', 43, 'female', 'kaiga', 'test'),
-(6, 'Hegde Sumanth Shyam', 'hsumanth339@gmail.com', 'O+', '7349376269', 0, '', '', 'test'),
-(5, 'Pushpa', 'hsumanth899@gmail.com', 'O+', '7349376269', 0, '', '', 'test'),
-(24, 'Prash', 'ppp@gmail.com', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
-(22, 'Prash', 'pras@gmail', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
+(15, 'Hema', 'hema@gmail.com', 'B+', '944943914', 43, 'female', 'kaiga', 'test'),
 (23, 'Prashanth', 'prashanth@gmail', 'O+', '7349376269', 20, 'Male', 'Karkala', 'test'),
-(19, 'pushpa', 'pushp@gmail.com', 'o+', '12346712', 12, 'female', 'ghjk', 'test'),
-(17, 'ruchitha', 'ruchitha@gmail.com', 'a+', '12346789', 20, 'female', 'kundapura', 'test'),
-(14, 'Sanketh', 'sankethegde143@gmail.com', 'O+', '7349376269', 30, 'Male', 'Karkala', 'test'),
-(10, 'Sandhya1', 'test1@test.com', 'O+', '7349376269', 0, '', '', 'test'),
-(9, 'Sandhya', 'test@test.com', 'O+', '7349376269', 0, '', '', 'test');
+(17, 'Ruchitha', 'ruchitha@gmail.com', 'A+', '12346789', 20, 'female', 'kundapura', 'test'),
+(14, 'Sanketh', 'sankethegde143@gmail.com', 'O+', '7349376269', 18, 'Male', 'Karkala', 'test');
 
 --
 -- Indexes for dumped tables
@@ -191,7 +184,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bloodbank`
 --
 ALTER TABLE `bloodbank`
-  MODIFY `Bloodbank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Bloodbank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -203,13 +196,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `request_blood`
 --
 ALTER TABLE `request_blood`
-  MODIFY `Request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `User_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `User_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Constraints for dumped tables
