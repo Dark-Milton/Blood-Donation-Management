@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     user : 'admin',
     password : 'admin',
     database: 'blood_donation',
-    port :3306,
+    port :3307, //XAMPP Port
 })
 connection.connect(function(err) {
     if(err) {
